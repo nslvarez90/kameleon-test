@@ -19,18 +19,18 @@ export default function LoginPage() {
       if (user) {
         router.push('/dashboard');
       } else {
-        setError('Credenciales incorrectas');
+        setError('Wrong username or password');
       }
     } catch (err) {
      console.error("Error:", err); 
-      setError('Error al iniciar sesión');
+      setError('Some error ocurrs, please try later');
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Loggin</h1>
+        <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Login</h1>
         
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
