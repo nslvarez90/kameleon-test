@@ -1,33 +1,32 @@
-"use client"; // Necesario para usar hooks y localStorage
+"use client";
 
-// Usuarios válidos (en producción usa DB o servicio externo)
+// auth.ts
 const validUsers = [
   {
     username: 'technology@kameleonlabs.ai',
-    password: '#4nrsHSre1#@uPC$3ZR8',   
+    password: '#4nrsHSre1#@uPC$3ZR8',
+    name: 'Admin User'
   }  
 ];
 
-export async function login(username: string, password: string) {
+export const login = (username: string, password: string) => {
   const user = validUsers.find(u => 
     u.username === username && u.password === password
   );
 
   if (!user) return null;
 
-  // Simulamos token JWT (en producción genera uno real)
   const token = Buffer.from(JSON.stringify(user)).toString('base64');
   
-  // Guardamos en localStorage (solo cliente)
   if (typeof window !== 'undefined') {
     localStorage.setItem('auth-token', token);
   }
 
   return user;
-}
+};
 
-export async function getSession() {
-  if (typeof window === 'undefined') return null; // No disponible en SSR
+export const getSession = () => {
+  if (typeof window === 'undefined') return null;
 
   const token = localStorage.getItem('auth-token');
   if (!token) return null;
@@ -37,11 +36,11 @@ export async function getSession() {
   } catch {
     return null;
   }
-}
+};
 
-export async function logout() {
+export const logout = () => {
   if (typeof window !== 'undefined') {
     localStorage.removeItem('auth-token');
-    window.location.href = '/login'; // Redirección del cliente
+    window.location.href = '/auth/login';
   }
-}
+};
