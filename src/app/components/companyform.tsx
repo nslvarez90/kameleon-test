@@ -56,7 +56,7 @@ export default function CompanyForm({ company, onSubmit, onCancel }: CompanyForm
       <div className="grid grid-cols-1 gap-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-            Nombre de la Empresa
+            Company Name
           </label>
           <input
             type="text"
@@ -64,13 +64,13 @@ export default function CompanyForm({ company, onSubmit, onCancel }: CompanyForm
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-700"
           />
         </div>
 
         <div>
           <label htmlFor="address" className="block text-sm font-medium text-gray-700">
-            Dirección
+            Address
           </label>
           <input
             type="text"
@@ -78,13 +78,13 @@ export default function CompanyForm({ company, onSubmit, onCancel }: CompanyForm
             required
             value={formData.address}
             onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-700"
           />
         </div>
 
         <div>
           <label htmlFor="sales" className="block text-sm font-medium text-gray-700">
-            Ventas ($)
+            Sales ($)
           </label>
           <input
             type="number"
@@ -94,28 +94,28 @@ export default function CompanyForm({ company, onSubmit, onCancel }: CompanyForm
             required
             value={formData.sales}
             onChange={(e) => setFormData({ ...formData, sales: parseFloat(e.target.value) || 0 })}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-700"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700">
-            Categorías
+            Categoryies
           </label>
           <div className="mt-1 flex gap-2">
             <input
               type="text"
               value={newCategory}
               onChange={(e) => setNewCategory(e.target.value)}
-              className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border"
-              placeholder="Agregar categoría"
+              className="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-700"
+              placeholder="Add New"
             />
             <button
               type="button"
               onClick={handleAddCategory}
               className="bg-gray-200 text-gray-700 px-3 py-2 rounded hover:bg-gray-300"
             >
-              Agregar
+              Add
             </button>
           </div>
           
