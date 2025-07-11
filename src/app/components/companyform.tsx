@@ -10,7 +10,7 @@ type CompanyFormProps = {
   onCancel: () => void;
 };
 
-const defaultCategories = ['Retail', 'Tecnología', 'Manufactura', 'Servicios', 'Alimentos'];
+const defaultCategories = ['Retail', 'Tech','Services', 'Foods'];
 
 export default function CompanyForm({ company, onSubmit, onCancel }: CompanyFormProps) {
   const [formData, setFormData] = useState<Omit<Company, 'id' | 'createdAt'>>({
@@ -24,7 +24,7 @@ export default function CompanyForm({ company, onSubmit, onCancel }: CompanyForm
 
   useEffect(() => {
     if (company) {
-      const { id, createdAt, ...companyData } = company;
+      const { ...companyData } = company;
       setFormData(companyData);
     }
   }, [company]);

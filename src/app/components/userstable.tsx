@@ -12,6 +12,23 @@ export default function UsersTable() {
   const [editingUser, setEditingUser] = useState<User | null>(null);
 
   useEffect(() => {
+        if (!localStorage.getItem('users')) {
+      const sampleUsers = [
+        {
+          id: '1',
+          name: 'Admin',
+          email: 'technology@kameleonlabs.ai',
+          role: 'admin'
+        },
+       {
+          id: '2',
+          name: 'User',
+          email: 'user1@kameleonlabs.ai',
+          role: 'user'
+        },
+      ];
+      localStorage.setItem('users', JSON.stringify(sampleUsers));
+    }
     const storedUsers = localStorage.getItem('users');
     if (storedUsers) {
       setUsers(JSON.parse(storedUsers));

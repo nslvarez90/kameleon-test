@@ -3,16 +3,10 @@
 import { getSession, logout } from '@/src/app/lib/auth';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 import UsersTable from '@/src/app/components/userstable';
 import CompaniesTable from '../components/companiestable';
 
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string;
-};
 
 export default function DashboardPage() {
   const router = useRouter();
