@@ -4,10 +4,9 @@ import { getSession, logout } from '@/src/app/lib/auth';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import UsersTable from '@/src/app/components/userstable';
+import UsersTable from '../components/userstable';
 import CompaniesTable from '../components/companiestable';
-
-
+import  { DashboardBI} from "../components/dashboardBI";
 export default function DashboardPage() {
   const router = useRouter();
   const session = getSession();
@@ -121,18 +120,7 @@ export default function DashboardPage() {
         </nav>
 
         <main className="flex-1 overflow-y-auto p-6">
-          {activeTab === 'dashboard' && (
-            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <div className="text-center">
-                <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-                  Welcome, {session.name}!
-                </h2>
-                <p className="text-gray-500">
-                  Select a section from the sidebar to get started.
-                </p>
-              </div>
-            </div>
-          )}
+          {activeTab === 'dashboard' &&  <DashboardBI />}
 
           {activeTab === 'users' && <UsersTable />}
 
